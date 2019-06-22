@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	
-	root 'landing#index'
+	root 'landings#index'
 	get 'landings/index'
   get 'landings/about'
   get 'landings/contact'
