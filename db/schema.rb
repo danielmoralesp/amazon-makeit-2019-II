@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_012824) do
+ActiveRecord::Schema.define(version: 2019_07_04_231923) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user", limit: 40, default: "f", null: false
+    t.integer "rating", default: 0, null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_07_03_012824) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_product"
+    t.string "color"
   end
 
 end
