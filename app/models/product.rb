@@ -8,4 +8,7 @@ class Product < ApplicationRecord
 	validates :price, length: { in: 4..7 }
 	validates :name, length: { minimum: 50 }
 	validates :description, format: { with: /\A[a-zA-Z]/, message: "only allows letters"}
+
+	# has_many :comments
+	belongs_to :user
 end
