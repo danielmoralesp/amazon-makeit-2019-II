@@ -1,7 +1,43 @@
-<h1>Products#index</h1>
+<div class="container">
 
-<% @products.each do |product| %>
-	
-	<%= product.name %> <br>
+	<div class="row">
 
-<% end %>
+		<div class="col-md-12">
+			<div class="col-md-2">
+				<h1 class="mb-5 mt-5">Products</h1>
+			</div>
+			
+			<div class="col-md-10 float-right">
+				<%= link_to "New Product", new_product_path, class: "btn btn-primary" %>
+			</div>
+		</div>
+		
+
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>User</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td><%= product.name %></td>
+						<td><%= product.description %></td>
+						<td><%= product.price %></td>
+						<td><%= product.user.present? ? product.user.name : "Sin usuario asociado." %></td>
+						<td><%= link_to "Mostrar", product_path(product.id) %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
