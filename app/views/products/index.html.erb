@@ -11,7 +11,6 @@
 				<%= link_to "New Product", new_product_path, class: "btn btn-primary" %>
 			</div>
 		</div>
-		
 
 		<table class="table table-striped">
 
@@ -32,7 +31,11 @@
 						<td><%= product.description %></td>
 						<td><%= product.price %></td>
 						<td><%= product.user.present? ? product.user.name : "Sin usuario asociado." %></td>
-						<td><%= link_to "Mostrar", product_path(product.id) %></td>
+						<td>
+							<%= link_to "Mostrar", product_path(product) %>
+							<%= link_to "Editar", edit_product_path(product) %>
+							<%= link_to "Eliminar", product_path(product), method: :delete, data: { confirm: "Estas seguro de eliminar el producto?" } %>
+						</td>
 					</tr>
 				<% end %>
 			</tbody>
